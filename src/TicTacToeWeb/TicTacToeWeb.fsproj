@@ -6,7 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs"/>
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Aoxian.TicTacToe" Version="1.0.0" />
+      <PackageReference Include="Aoxian.Web.HTTP" Version="0.1.0" />
     </ItemGroup>
 
 </Project>

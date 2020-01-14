@@ -1,0 +1,15 @@
+language: csharp
+os: linux
+mono: none
+dotnet: 3.0.100
+solution: HTTPServer.sln
+install:
+- "./scripts/build.sh"
+jobs:
+  include:
+  - stage: tests 
+    script:
+    - "./scripts/run_unit_tests.sh"
+
+language: csharp
+solution: HTTPServer.sln
