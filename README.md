@@ -6,7 +6,7 @@ A browser based, TicTacToe game
 ## Project Dependencies
 
 ### Dotnet Core
-This project is built using the [dotnet core](https://docs.microsoft.com/en-us/dotnet/core/) in [c#](https://docs.microsoft.com/en-us/dotnet/csharp/).
+This project is built using the [dotnet core](https://docs.microsoft.com/en-us/dotnet/core/) in [F#](https://fsharp.org).
 
 For installation instructions, see one of the following guides, depending on your environment:
 * [Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore30)
