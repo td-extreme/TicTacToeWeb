@@ -1,5 +1,1 @@
-open System
-
-[<EntryPoint>]
-let main argv =
-    0 // return an integer exit code
+module Program = let [<EntryPoint>] main _ = 0

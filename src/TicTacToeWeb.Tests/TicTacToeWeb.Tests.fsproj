@@ -1,26 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
 
-    <IsPackable>false</IsPackable>
-    <GenerateProgramFile>false</GenerateProgramFile>
-  </PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <GenerateProgramFile>false</GenerateProgramFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="TestWireUpTests.fs" />
-    <Compile Include="Program.fs" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+        <PackageReference Include="xunit" Version="2.4.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+        <PackageReference Include="coverlet.collector" Version="1.0.1" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
-    <PackageReference Include="coverlet.collector" Version="1.0.1" />
-  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\TicTacToeWeb\TicTacToeWeb.fsproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TicTacToeWeb\TicTacToeWeb.fsproj" />
-  </ItemGroup>
+    <ItemGroup>
+      <Content Include="Site\Game\mock.html" />
+      <Compile Include="UtilsTests.fs" />
+      <Compile Include="TTTGameTests.fs" />
+      <Compile Include="GameControllersTests.fs" />
+      <Compile Include="Program.fs" />
+    </ItemGroup>
 
 </Project>

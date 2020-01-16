@@ -16,6 +16,7 @@ jobs:
     script:
     - "./scripts/run_unit_tests.sh"
   - stage: deploy
+    if: branch = master 
     before_script:
       - eval "$(ssh-agent -s)"
       - chmod 600 /tmp/deploy_rsa

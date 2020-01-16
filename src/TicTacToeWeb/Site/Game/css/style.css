@@ -1,0 +1,23 @@
+#game-board {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    list-style: none;
+}
+
+.square--x {
+    background-color: orangered;
+}
+
+.square--o {
+    background-color: blueviolet;
+}

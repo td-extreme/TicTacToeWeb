@@ -6,13 +6,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="TestWireUp.fs" />
-        <Compile Include="Program.fs" />
+      <PackageReference Include="Aoxian.TicTacToe" Version="1.0.0" />
+      <PackageReference Include="Aoxian.Web.HTTP" Version="0.1.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Aoxian.TicTacToe" Version="1.0.0" />
-      <PackageReference Include="Aoxian.Web.HTTP" Version="0.1.0" />
+      <Content Include="Site\Game\css\style.css" />
+      <Content Include="Site\Game\js\ttt_game.js" />
+      <Content Include="Site\Game\index.html" />
+      <Compile Include="Utils.fs" />
+      <Compile Include="TTTGame.fs" />
+      <Compile Include="GameControllers.fs" />
+      <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>
