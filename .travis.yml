@@ -10,6 +10,7 @@ before_install:
   -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - npm install
 - npm install mocha
+- npm install typescript
 install:
 - "./scripts/build.sh"
 jobs:

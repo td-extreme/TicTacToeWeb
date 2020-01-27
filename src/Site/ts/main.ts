@@ -23,7 +23,7 @@ const startGame = () => {
 };
 
 const initBoard = () => {
-    for (squareIndex = 1; squareIndex <= 9; squareIndex++) {
+    for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
         let square = document.createElement("li");
         let squareId = squareIndex.toString();
         square.id = "square-" + squareId;
@@ -39,8 +39,8 @@ const refreshBoard = (tttBoard) => {
 };
 
 const drawBoard = (board) => {
-    for (i = 1; i <= 9; i++) {
-        let squareId = i.toString();
+    for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
+        let squareId = squareIndex.toString();
         let square = document.getElementById("square-" + squareId);
         if (board[squareId] === playerName || board[squareId] === computerName) {
             fillSquare(board[squareId], square)

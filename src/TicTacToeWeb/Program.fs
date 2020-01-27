@@ -14,7 +14,7 @@ let main argv =
     let files =
          [ "/css/style.css"
            "/index.html";
-           "/js/tictactoe.js" ]
+           "/js/main.js" ]
     let fileController = FileController(withLogging)
     fileController.AddFileRoutes(httpRouter, files)
 
