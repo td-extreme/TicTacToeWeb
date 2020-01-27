@@ -5,3 +5,11 @@
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
 }
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    list-style: none;
+}

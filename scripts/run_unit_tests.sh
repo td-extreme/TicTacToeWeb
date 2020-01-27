@@ -2,7 +2,7 @@
 
 set -e
 
-npm test ./src/Site.Tests
+$(npm bin)/mocha ./src/Site.Tests --reporter dot
 cd ./src
 dotnet test
 exit 0
