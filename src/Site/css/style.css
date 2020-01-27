@@ -13,3 +13,11 @@
     background-color: aliceblue;
     list-style: none;
 }
+
+.square--x {
+    background-color: orangered;
+}
+
+.square--o {
+    background-color: blueviolet;
+}
