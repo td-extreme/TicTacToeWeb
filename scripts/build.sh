@@ -2,7 +2,7 @@
 
 set -e
 
-./node_modules/typescript/bin/tsc
+$(npm bin)/webpack
 
 cd ./src
 dotnet clean

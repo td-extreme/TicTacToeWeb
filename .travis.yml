@@ -9,8 +9,6 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_502a8cc6fba7_key -iv $encrypted_502a8cc6fba7_iv
   -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - npm install
-- npm install mocha
-- npm install typescript
 install:
 - "./scripts/build.sh"
 jobs:

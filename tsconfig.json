@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
-        "outFile": "./src/Site/js/main.js",
+        "outDir": "src/Site/js",
         "allowJs": true,
-        "target": "es5"
+        "target": "es6",
+        "module": "commonjs"
     },
     "include": [
-        "./src/Site/ts/**/*"
+        "src/Site/ts/**/*"
     ]
 }

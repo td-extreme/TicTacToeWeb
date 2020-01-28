@@ -1,12 +1,13 @@
-import Game = TicTacToe.Game;
+import { Game } from './game';
 
-function startGame() {
-    this.game = new Game();
+const game = new Game();
+
+const startGame = () => {
     initBoard();
-    refreshBoard(this.game.board);
+    refreshBoard(game.board);
 };
 
-function initBoard() {
+const initBoard = () => {
     for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
         let square = document.createElement("li");
         let squareId = squareIndex.toString();
@@ -18,11 +19,11 @@ function initBoard() {
     }
 };
 
-function refreshBoard(tttBoard) {
+const refreshBoard = (tttBoard) => {
     drawBoard(tttBoard);
 };
 
-function drawBoard(board) {
+const drawBoard = (board) => {
     for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
         let squareId = squareIndex.toString();
         let square = document.getElementById("square-" + squareId);
@@ -34,18 +35,20 @@ function drawBoard(board) {
     }
 };
 
-function squareIsMarked(squareContents) {
-    return (squareContents === this.game.playerOneMark || squareContents === this.game.playerTwoMark);
+const squareIsMarked = (squareContents) => {
+    return (squareContents === game.playerOneMark || squareContents === game.playerTwoMark);
 }
 
-function fillSquare(player, element) {
+const fillSquare = (player, element) => {
 
-    let displayMark = this.game.decodeMark(player);
+    let displayMark = game.decodeMark(player);
     element.classList.add("square--" + displayMark.toLowerCase());
     element.innerHTML = displayMark;
 };
 
-function markSquarePlayer(square) {
+const markSquarePlayer = (square) => {
     fillSquare("One", square);
-    refreshBoard(this.game.board);
+    refreshBoard(game.board);
 };
+
+startGame();
