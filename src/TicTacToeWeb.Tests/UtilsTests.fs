@@ -22,10 +22,11 @@ let ``Logging request & response format includes all elements`` () =
     let testRequest = Aoxian.Web.HTTP.Request()
     let testResponse = Aoxian.Web.HTTP.Response()
     let expectedOutput =
-       sprintf "Received: %A\nMethod: %s\nHeaders: %A\nBody: %s\nParameters: %A\n\n\
+       sprintf "Received: %A\nMethod: %s\nPath: %s\nHeaders: %A\nBody: %s\nParameters: %A\n\n\
        Result is %A\nStatusCode: %A\nHeaders: %A\nBody: %s\n\n\n"
            testRequest
            testRequest.Method
+           testRequest.Path
            testRequest.Headers
            testRequest.Body
            testRequest.Parameters

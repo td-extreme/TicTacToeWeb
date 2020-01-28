@@ -25,9 +25,10 @@ let contentType(path : string) =
             | _ -> "text/plain"
 
 let log (request: Request) (response : Response) =
-   printfn "Received: %A\nMethod: %s\nHeaders: %A\nBody: %s\nParameters: %A\n"
+   printfn "Received: %A\nMethod: %s\nPath: %s\nHeaders: %A\nBody: %s\nParameters: %A\n"
        request
        request.Method
+       request.Path
        request.Headers
        request.Body
        request.Parameters
