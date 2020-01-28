@@ -1,9 +1,9 @@
 export class Game {
     board: { "tttBoard": { "1": string, "2": string, "3": string, "4": string, "5": string, "6": string, "7": string, "8": string, "9": string } }
-    playerOne = "One";
-    playerTwo = "Two";
-    playerOneMark = "X";
-    playerTwoMark = "O";
+    public playerOneName = "One";
+    public playerTwoName = "Two";
+    public playerOneMark = "X";
+    public playerTwoMark = "O";
 
     constructor() {
         this.board = {
@@ -22,7 +22,8 @@ export class Game {
     }
 
     decodeMark(playerName) {
-        if (playerName === this.playerOne) return this.playerOneMark;
-        return this.playerTwoMark;
+        if (playerName === this.playerOneName) return this.playerOneMark;
+        if (playerName === this.playerTwoName) return this.playerTwoMark;
+        return "None";
     };
 }

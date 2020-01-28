@@ -6,10 +6,20 @@ import { Game } from './game'
 
 describe('Game', () => {
 
-    it('Game.decodeMark decode One to X and Two to O', () => {
+    it('PlayerOne: Name is "One" and Mark is "X"', () => {
         let testGame = new Game();
-        expect(testGame.decodeMark("One")).to.equal("X");
-        expect(testGame.decodeMark("Two")).to.equal("O");
+        let expectedName = testGame.playerOneName;
+        let expectedMark = testGame.playerOneMark;
+        expect(testGame.playerOneName).to.equal(expectedName);
+        expect(testGame.decodeMark(testGame.playerOneName)).to.equal(expectedMark);
+    });
+
+    it('PlayerOne: Name is "Two" and Mark is "O"', () => {
+        let testGame = new Game();
+        let expectedName = testGame.playerTwoName;
+        let expectedMark = testGame.playerTwoMark;
+        expect(testGame.playerTwoName).to.equal(expectedName);
+        expect(testGame.decodeMark(testGame.playerTwoName)).to.equal(expectedMark);
     });
 
 });
