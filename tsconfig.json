@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outFile": "./src/Site/js/main.js",
+        "allowJs": true,
+        "target": "es5"
+    },
+    "include": [
+        "./src/Site/ts/**/*"
+    ]
+}
