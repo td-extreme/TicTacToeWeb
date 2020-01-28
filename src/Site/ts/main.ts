@@ -1,28 +1,12 @@
-const playerName = "One";
-const playerMark = "X";
-const computerName = "Two";
-const computerMark = "O";
+import Game = TicTacToe.Game;
 
-let board = {
-    'tttBoard': {
-        '1': '',
-        '2': '',
-        '3': '',
-        '4': '',
-        '5': '',
-        '6': '',
-        '7': '',
-        '8': '',
-        '9': ''
-    }
-};
-
-const startGame = () => {
+function startGame() {
+    this.game = new Game();
     initBoard();
-    refreshBoard(board);
+    refreshBoard(this.game.board);
 };
 
-const initBoard = () => {
+function initBoard() {
     for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
         let square = document.createElement("li");
         let squareId = squareIndex.toString();
@@ -34,15 +18,15 @@ const initBoard = () => {
     }
 };
 
-const refreshBoard = (tttBoard) => {
+function refreshBoard(tttBoard) {
     drawBoard(tttBoard);
 };
 
-const drawBoard = (board) => {
+function drawBoard(board) {
     for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
         let squareId = squareIndex.toString();
         let square = document.getElementById("square-" + squareId);
-        if (board[squareId] === playerName || board[squareId] === computerName) {
+        if (squareIsMarked(board[squareId])) {
             fillSquare(board[squareId], square)
         } else {
             square.onclick = () => markSquarePlayer(square);
@@ -50,18 +34,18 @@ const drawBoard = (board) => {
     }
 };
 
-const fillSquare = (player, element) => {
-    let displayMark = decodeMark(player);
+function squareIsMarked(squareContents) {
+    return (squareContents === this.game.playerOneMark || squareContents === this.game.playerTwoMark);
+}
+
+function fillSquare(player, element) {
+
+    let displayMark = this.game.decodeMark(player);
     element.classList.add("square--" + displayMark.toLowerCase());
     element.innerHTML = displayMark;
 };
 
-const decodeMark = (player) => {
-    if (player === playerName) return playerMark;
-    return computerMark;
-};
-
-const markSquarePlayer = (square) => {
-    fillSquare(playerName, square);
-    refreshBoard(board);
+function markSquarePlayer(square) {
+    fillSquare("One", square);
+    refreshBoard(this.game.board);
 };
