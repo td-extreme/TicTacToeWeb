@@ -1,6 +1,8 @@
 import { Game } from './game';
 
 const game = new Game();
+const firstSquareOnBoard = 1;
+const numberOfSquaresOnBoard = 9;
 
 const startGame = () => {
     initBoard();
@@ -8,7 +10,7 @@ const startGame = () => {
 };
 
 const initBoard = () => {
-    for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
+    for (var squareIndex = firstSquareOnBoard; squareIndex <= numberOfSquaresOnBoard; squareIndex++) {
         let square = document.createElement("li");
         let squareId = squareIndex.toString();
         square.id = "square-" + squareId;
@@ -24,7 +26,7 @@ const refreshBoard = (tttBoard) => {
 };
 
 const drawBoard = (board) => {
-    for (var squareIndex = 1; squareIndex <= 9; squareIndex++) {
+    for (var squareIndex = firstSquareOnBoard; squareIndex <= numberOfSquaresOnBoard; squareIndex++) {
         let squareId = squareIndex.toString();
         let square = document.getElementById("square-" + squareId);
         if (squareIsMarked(board[squareId])) {
