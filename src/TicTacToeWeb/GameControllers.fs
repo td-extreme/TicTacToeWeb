@@ -21,7 +21,7 @@ type TTTGameController(tttGame: Aoxian.TicTacToe.Game) =
 
     let get (request: Request) =
         playMove (request)
-        ResponseBuilder().AddStatusCode(StatusCode.Ok).AddBody(TicTacToeWeb.View.board (tttGame)).Build()
+        ResponseBuilder().AddStatusCode(StatusCode.Ok).AddBody(TicTacToeWeb.View.showGame (tttGame)).Build()
 
     let getWithLogging (request: Request) = Utils.httpLogger get request true
 
