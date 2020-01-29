@@ -1,4 +1,3 @@
-/// <reference path="game.ts" />
 import { expect } from 'chai';
 import 'mocha';
 import { Game } from './game'
