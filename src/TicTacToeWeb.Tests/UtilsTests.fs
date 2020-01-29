@@ -5,17 +5,6 @@ open System.IO
 open TicTacToeWeb
 open Xunit
 
-[<Fact>]
-let ``readFile retrieves file contents from files in Site folder`` () =
-    let contents = Utils.readFile("index.html")
-    Assert.True(contents.Length > 1)
-    Assert.Contains("Tic Tac Toe", contents)
-
-[<Fact>]
-let ``readFile returns emtpy string if a file doesn't exist`` () =
-    let contents = Utils.readFile("doesnt_exist.txt")
-    Assert.True(contents.Length = 0)
-    Assert.Equal("", contents)
 
 [<Fact>]
 let ``Logging request & response format includes all elements`` () =
@@ -41,13 +30,3 @@ let ``Logging request & response format includes all elements`` () =
     let logStatement = stringOutput.GetStringBuilder().ToString()
 
     Assert.Equal(expectedOutput, logStatement)
-
-[<Theory>]
-[<InlineData("file.css", "text/css")>]
-[<InlineData("file.html", "text/html")>]
-[<InlineData("file.js", "text/javascript")>]
-[<InlineData("README.md", "text/plain")>]
-[<InlineData("no_extension", "text/plain")>]
-let ``contentType returns the approriate content-type value for a given file`` (pathWithFile, expectedResult) =
-    let actualResult = Utils.contentType pathWithFile
-    Assert.Equal(expectedResult, actualResult)

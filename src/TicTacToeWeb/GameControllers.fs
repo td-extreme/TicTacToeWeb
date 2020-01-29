@@ -4,24 +4,25 @@ open Aoxian.Web.HTTP
 open Aoxian.Web.HTTP.utils
 open TicTacToeWeb
 
-type FileController(withLogging : bool) =
+type TTTGameController(tttGame: Aoxian.TicTacToe.Game) =
     inherit Controller()
 
-    let get (request : Request) =
-       ResponseBuilder()
-            .AddStatusCode(StatusCode.Ok)
-            .AddBody(Utils.readFile(request.Path))
-            .AddHeader(Header.CONTENT_TYPE, Utils.contentType(request.Path))
-            .Build ()
+    let playPcMove() =
+        if tttGame.GameStatus() = Aoxian.TicTacToe.Types.GameStatus.InProgress then
+            tttGame.NextPlayer()
+            tttGame.ProcessMove(tttGame.GameAi.GetMove(tttGame.Board))
+            tttGame.NextPlayer()
 
-    let getWithLogging (request : Request) =
-        Utils.httpLogger get request withLogging
+    let playMove (request: Request) =
+        let move = int request.Path.[request.Path.Length - 1] - 48
+        if 1 <= move && move <= 9 then
+            tttGame.ProcessMove(move)
+            playPcMove()
 
-    override this.Get (request : IRequest) =
-        getWithLogging (request :?> Request)
+    let get (request: Request) =
+        playMove (request)
+        ResponseBuilder().AddStatusCode(StatusCode.Ok).AddBody(TicTacToeWeb.View.board (tttGame)).Build()
 
-    member this.AddFileRoutes(router: Router, paths) =
-        let methods = [|Method.GET; Method.HEAD; Method.OPTIONS|]
-        paths
-        |> List.map (fun path -> router.AddRoutes(methods, path, this))
-        |> ignore
+    let getWithLogging (request: Request) = Utils.httpLogger get request true
+
+    override this.Get(request: IRequest) = getWithLogging (request :?> Request)
